@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GramBiz — Local Business Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            <span class="logo-mark">G</span>
+            <span>GramBiz</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#explore">Explore</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#insights">Insights</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="language-btn">
+                EN <span>⌄</span>
+            </button>
+
+            <button class="signin-btn">
+                Sign in
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    AI-POWERED BUSINESS ADVISORY
+                </span>
+
+                <h1>
+                    Turn your idea into a
+                    <span>local opportunity.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover demand, understand competition and build
+                    a financially viable business plan around your local market.
+                </p>
+
+                <div class="hero-search">
+
+                    <div class="search-icon">
+                        ⌕
+                    </div>
+
+                    <input
+                        type="text"
+                        id="heroLocation"
+                        placeholder="Enter your village, block or district..."
+                    >
+
+                    <button id="exploreBtn">
+                        Explore
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+                <div class="hero-note">
+                    <span class="status-dot"></span>
+                    Hyper-local intelligence within a 5–10 km radius
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <img
+                    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1600&q=85"
+                    alt="Rural landscape"
+                >
+
+                <div class="image-overlay"></div>
+
+                <div class="floating-card market-card">
+
+                    <div class="floating-icon">
+                        ↗
+                    </div>
+
+                    <div>
+                        <strong>Local Opportunity</strong>
+                        <span>Market insight ready</span>
+                    </div>
+
+                </div>
+
+                <div class="location-pill">
+                    <span>●</span>
+                    Hyper-local market
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURE STRIP -->
+        <section class="feature-strip">
+
+            <div class="feature-item">
+                <div class="feature-icon">⌖</div>
+                <div>
+                    <strong>Hyper-local</strong>
+                    <span>5–10 km market intelligence</span>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">◌</div>
+                <div>
+                    <strong>Competition</strong>
+                    <span>Find gaps in your market</span>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">₹</div>
+                <div>
+                    <strong>Financial planning</strong>
+                    <span>Loan, EMI & repayment</span>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">✦</div>
+                <div>
+                    <strong>AI guidance</strong>
+                    <span>Simple, personalized advice</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- EXPLORE -->
+        <section class="explore-section" id="explore">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">
+                        EXPLORE YOUR MARKET
+                    </span>
+
+                    <h2>
+                        Start with what you know.
+                    </h2>
+                </div>
+
+                <p>
+                    Tell us where you are and what you want to build.
+                    The rest starts with your local market.
+                </p>
+
+            </div>
+
+
+            <div class="explore-grid">
+
+                <!-- LOCATION CARD -->
+                <div class="explore-card">
+
+                    <span class="card-number">01</span>
+
+                    <div class="card-icon">
+                        ⌖
+                    </div>
+
+                    <h3>Where?</h3>
+
+                    <p>
+                        Select your village, block or district
+                        to understand the surrounding market.
+                    </p>
+
+                    <input
+                        type="text"
+                        id="locationInput"
+                        placeholder="e.g. Lucknow, Uttar Pradesh"
+                    >
+
+                </div>
+
+
+                <!-- BUSINESS CARD -->
+                <div class="explore-card">
+
+                    <span class="card-number">02</span>
+
+                    <div class="card-icon">
+                        ◇
+                    </div>
+
+                    <h3>What business?</h3>
+
+                    <p>
+                        Choose the business category you want
+                        to explore in your area.
+                    </p>
+
+                    <select id="businessInput">
+
+                        <option value="">
+                            Select business
+                        </option>
+
+                        <option value="Dairy">
+                            Dairy
+                        </option>
+
+                        <option value="Food Processing">
+                            Food Processing
+                        </option>
+
+                        <option value="Retail">
+                            Retail
+                        </option>
+
+                        <option value="Handicrafts">
+                            Handicrafts
+                        </option>
+
+                        <option value="Agriculture">
+                            Agriculture
+                        </option>
+
+                        <option value="Services">
+                            Local Services
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- CAPITAL CARD -->
+                <div class="explore-card">
+
+                    <span class="card-number">03</span>
+
+                    <div class="card-icon">
+                        ₹
+                    </div>
+
+                    <h3>Available capital?</h3>
+
+                    <p>
+                        Enter your available margin capital
+                        to estimate a feasible project size.
+                    </p>
+
+                    <div class="capital-input">
+
+                        <span>₹</span>
+
+                        <input
+                            type="number"
+                            id="capitalInput"
+                            placeholder="1,00,000"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAP ACTION -->
+            <div class="map-action">
+
+             <div class="map-info">
+
+               <div class="map-pin">
+            ⌖
+                </div>
+
+            <div>
+            <strong>Explore your local market</strong>
+
+             <span id="mapLocationText">
+               Enter a location to explore your local market</span>
+        </div>
+
+    </div>
+
+    <button id="mapBtn" class="map-btn">
+    Explore Local Market
+    <span>↗</span>
+</button>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW IT WORKS -->
+        <section class="how-section" id="how-it-works">
+
+            <div class="section-heading center">
+
+                <span class="eyebrow">
+                    HOW IT WORKS
+                </span>
+
+                <h2>
+                    From idea to action.
+                </h2>
+
+                <p>
+                    A simple four-step journey designed for
+                    first-time entrepreneurs.
+                </p>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <span>01</span>
+
+                    <div class="step-icon">
+                        ⌖
+                    </div>
+
+                    <h3>Discover</h3>
+
+                    <p>
+                        Tell us your location,
+                        capital and business idea.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>02</span>
+
+                    <div class="step-icon">
+                        ◌
+                    </div>
+
+                    <h3>Analyze</h3>
+
+                    <p>
+                        Understand demand,
+                        competitors and market gaps.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>03</span>
+
+                    <div class="step-icon">
+                        ₹
+                    </div>
+
+                    <h3>Structure</h3>
+
+                    <p>
+                        Calculate project cost,
+                        loan, EMI and repayment.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>04</span>
+
+                    <div class="step-icon">
+                        ✦
+                    </div>
+
+                    <h3>Decide</h3>
+
+                    <p>
+                        Get a personalized
+                        business action plan.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INSIGHTS -->
+        <section class="insights-section" id="insights">
+
+            <div class="insights-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=85"
+                    alt="Community and local business"
+                >
+
+            </div>
+
+            <div class="insights-content">
+
+                <span class="eyebrow">
+                    BUILT FOR RURAL ENTREPRENEURS
+                </span>
+
+                <h2>
+                    Better decisions start
+                    with better local information.
+                </h2>
+
+                <p>
+                    GramBiz combines local market intelligence,
+                    AI-powered analysis and financial planning
+                    to help entrepreneurs move from uncertainty
+                    to a practical business decision.
+                </p>
+
+                <button class="outline-btn">
+                    Explore the approach →
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-brand">
+
+            <a href="#" class="logo">
+                <span class="logo-mark">G</span>
+                <span>GramBiz</span>
+            </a>
+
+            <p>
+                Local intelligence for
+                better entrepreneurship.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#explore">Explore</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#insights">Insights</a>
+
+        </div>
+
+        <div class="footer-copy">
+            Frontend prototype • SIH 2026
+        </div>
+
+    </footer>    
+
+    <script src="script.js"></script>
+
+</body>
+</html>
