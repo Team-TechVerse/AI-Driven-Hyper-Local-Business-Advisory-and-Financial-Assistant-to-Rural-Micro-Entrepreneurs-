@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Udyam Finance Portal</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary-color: #0F766E;
+            --secondary-color: #14B8A6;
+            --bg-color: #F8FAFC;
+            --card-bg: #FFFFFF;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: #333;
+        }
+
+        /* Custom Theme Utilities */
+        .text-primary-theme { color: var(--primary-color) !important; }
+        .text-secondary-theme { color: var(--secondary-color) !important; }
+        .bg-primary-theme { background-color: var(--primary-color) !important; }
+        .bg-secondary-theme { background-color: var(--secondary-color) !important; }
+        
+        .btn-primary-theme {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .btn-primary-theme:hover {
+            background-color: #0d635c;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-theme {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .btn-outline-theme:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #fff !important;
+            opacity: 1;
+        }
+
+        /* Card Styling */
+        .scheme-card {
+            background-color: var(--card-bg);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .scheme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Section Paddings */
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 0 auto 3rem auto;
+            border-radius: 2px;
+        }
+
+        /* Table Styling */
+        .table-custom thead {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .table-custom th, .table-custom td {
+            padding: 1rem;
+            vertical-align: middle;
+        }
+        
+        /* Accordion */
+        .accordion-button:not(.collapsed) {
+            background-color: #e0f2f1;
+            color: var(--primary-color);
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
+        
+        /* Checkmarks */
+        .check-list li {
+            list-style: none;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+        }
+        .check-list li::before {
+            content: '\F26A'; /* bootstrap icon bi-check-circle-fill */
+            font-family: 'Bootstrap Icons';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            top: -2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-primary-theme fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold d-flex align-items-center" href="#">
+                <i class="bi bi-bank2 me-2"></i> Bharat Udyam Finance
+            </a>
+            <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schemes">Loan Schemes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#eligibility">Eligibility</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#documents">Documents</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="section-padding bg-white mt-5">
+        <div class="container mt-4">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <h1 class="display-4 fw-bold text-primary-theme mb-4">Find the Right Government Loan Scheme for Your Business</h1>
+                    <p class="lead text-muted mb-5">Explore all major government schemes for startups, MSMEs, women entrepreneurs, farmers, artisans, and street vendors to fuel your business growth.</p>
+                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+                        <a href="#schemes" class="btn btn-primary-theme btn-lg">View Schemes</a>
+                        <a href="#comparison" class="btn btn-outline-theme btn-lg">Compare Loans</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <img src="https://placehold.co/600x400/14B8A6/FFFFFF?text=Business+Growth" alt="Business Growth" class="img-fluid rounded-3 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Schemes Section -->
+    <section id="schemes" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Government Loan Schemes</h2>
+            <div class="section-divider"></div>
+            
+            <div class="row g-4">
+                <!-- PMEGP -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card scheme-card h-100 p-4">
+                        <i class="bi bi-building card-icon"></i>
+                        <h4 class="fw-bold mb-3">PMEGP</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><strong>Purpose:</strong> Financial assistance for setting up new micro-enterprises.</li>
+                            <li class="mb-2"><strong>Loan Amount:</strong> Up to project cost approved by bank.</li>
+                            <li class="mb-2"><strong>Subsidy:</strong> Available based on category and location.</li>
+                            <li><strong>Best For:</strong> Manufacturing and service businesses.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mudra -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card scheme-card h-100 p-4">
+                        <i class="bi bi-wallet2 card-icon"></i>
+                        <h4 class="fw-bold mb-3">PM Mudra Yojana</h4>
+                        <p class="mb-2"><strong>Categories:</strong></p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-secondary-theme">Shishu</span>
+                            <span class="badge bg-secondary-theme">Kishore</span>
+                            <span class="badge bg-secondary-theme">Tarun</span>
+                            <span class="badge bg-secondary-theme">Tarun Plus</span>
+                        </div>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><strong>Loan Amount:</strong> Up to ₹20 lakh.</li>
+                            <li><strong>Best For:</strong> Small businesses and startups.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Stand-Up India -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card scheme-card h-100 p-4">
+                        <i class="bi bi-person-up card-icon"></i>
+                        <h4 class="fw-bold mb-3">Stand-Up India</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><strong>Focus:</strong> For Women and SC/ST entrepreneurs.</li>
+                            <li class="mb-2"><strong>Loan Amount:</strong> ₹10 lakh – ₹1 crore.</li>
+                            <li><strong>Best For:</strong> New businesses (Greenfield enterprises).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CGTMSE -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card scheme-card h-100 p-4">
+                        <i class="bi bi-shield-check card-icon"></i>
+                        <h4 class="fw-bold mb-3">CGTMSE</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><strong>Focus:</strong> Collateral-free business loans.</li>
+                            <li class="mb-2"><strong>Support:</strong> Credit guarantee support for MSMEs.</li>
+                            <li><strong>Best For:</strong> Existing and new MSMEs requiring larger funds without collateral.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PM SVANidhi -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card scheme-card h-100 p-4">
+                        <i class="bi bi-shop card-icon"></i>
+                        <h4 class="fw-bold mb-3">PM SVANidhi</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><strong>Purpose:</strong> Working capital loans for street vendors.</li>
+                            <li class="mb-2"><strong>Benefits:</strong> Digital transaction incentives and interest subsidy.</li>
+                            <li><strong>Best For:</strong> Street vendors and hawkers.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PM Vishwakarma -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card scheme-card h-100 p-4">
+                        <i class="bi bi-tools card-icon"></i>
+                        <h4 class="fw-bold mb-3">PM Vishwakarma</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><strong>Focus:</strong> Support for artisans and craftsmen.</li>
+                            <li class="mb-2"><strong>Benefits:</strong> Training, toolkit incentives, and credit support.</li>
+                            <li><strong>Best For:</strong> Traditional trades and crafts.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Section -->
+    <section id="eligibility" class="section-padding bg-white">
+        <div class="container">
+            <h2 class="section-title">Eligibility Criteria</h2>
+            <div class="section-divider"></div>
+            
+            <div class="table-responsive rounded-3 shadow-sm border">
+                <table class="table table-hover table-custom mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Scheme</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Business Type</th>
+                            <th scope="col">Special Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">PMEGP</td>
+                            <td>18+</td>
+                            <td>New Business</td>
+                            <td>All</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Mudra</td>
+                            <td>18+</td>
+                            <td>Small Business</td>
+                            <td>All</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Stand-Up India</td>
+                            <td>18+</td>
+                            <td>New Business</td>
+                            <td>Women/SC-ST</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">SVANidhi</td>
+                            <td>Vendor</td>
+                            <td>Existing Vendor</td>
+                            <td>Street Vendors</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Vishwakarma</td>
+                            <td>Artisan</td>
+                            <td>Traditional Trade</td>
+                            <td>Craftsmen</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Required Section -->
+    <section id="documents" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h2 class="section-title text-start">Documents Required</h2>
+                    <div class="section-divider ms-0"></div>
+                    <p class="text-muted mb-4">Ensure you have these common documents ready before applying for any government loan scheme to speed up your processing time.</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="card scheme-card p-4 p-md-5">
+                        <ul class="check-list p-0 m-0 row">
+                            <div class="col-md-6">
+                                <li>Aadhaar Card</li>
+                                <li>PAN Card</li>
+                                <li>Passport Photo</li>
+                                <li>Address Proof</li>
+                            </div>
+                            <div class="col-md-6">
+                                <li>Business Plan / Project Report</li>
+                                <li>Bank Passbook / Statements</li>
+                                <li>Udyam Registration (if applicable)</li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Comparison Table -->
+    <section id="comparison" class="section-padding bg-white">
+        <div class="container">
+            <h2 class="section-title">Loan Comparison</h2>
+            <div class="section-divider"></div>
+            
+            <div class="table-responsive rounded-3 shadow-sm border">
+                <table class="table table-hover table-custom mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Scheme</th>
+                            <th scope="col">Loan Amount</th>
+                            <th scope="col">Subsidy</th>
+                            <th scope="col">Collateral</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">PMEGP</td>
+                            <td>High (Project Based)</td>
+                            <td><span class="badge bg-success">Yes</span></td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Mudra</td>
+                            <td>Up to ₹20L</td>
+                            <td><span class="badge bg-secondary">No</span></td>
+                            <td>Usually No</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Stand-Up India</td>
+                            <td>Up to ₹1Cr</td>
+                            <td>Support</td>
+                            <td>May Apply</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">CGTMSE</td>
+                            <td>MSME Loans</td>
+                            <td>Guarantee</td>
+                            <td><span class="badge bg-success">No</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">SVANidhi</td>
+                            <td>Small Loan</td>
+                            <td>Support</td>
+                            <td><span class="badge bg-success">No</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="section-divider"></div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion shadow-sm rounded" id="faqAccordion">
+                        
+                        <!-- FAQ 1 -->
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">
+                                    Q. Which scheme is best for a new business?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    PMEGP and Mudra are excellent starting points for new micro and small businesses. PMEGP offers project-based funding with subsidies, while Mudra provides structured tier funding without heavy collateral requirements.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    Q. Which scheme is best for women entrepreneurs?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Stand-Up India is specifically designed to support Women and SC/ST entrepreneurs for greenfield enterprise setups, offering higher loan brackets from ₹10 lakh up to ₹1 crore.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="accordion-item border-0 border-bottom">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    Q. Can I get a loan without collateral?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes! Many schemes like Mudra and SVANidhi require no collateral. For larger amounts, CGTMSE provides credit guarantee support, allowing MSMEs to secure collateral-free business loans from partner banks.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    Q. Which scheme is for street vendors?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    PM SVANidhi is a special micro-credit facility tailored for street vendors. It provides initial working capital with incentives for regular repayment and digital transactions.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-primary-theme text-white py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-3 d-flex align-items-center">
+                        <i class="bi bi-bank2 me-2"></i> Bharat Udyam Finance
+                    </h5>
+                    <p class="text-white-50">Empowering entrepreneurs across India by bridging the gap between small businesses and government financial initiatives.</p>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-3">Important Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#schemes" class="text-white-50 text-decoration-none hover-white">Loan Schemes</a></li>
+                        <li class="mb-2"><a href="#eligibility" class="text-white-50 text-decoration-none hover-white">Check Eligibility</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-white">Official Government Portals</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-white">Disclaimer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-3">Contact Information</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> support@bharatudyamfinance.in</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2"></i> 1800-111-2222 (Toll Free)</li>
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> New Delhi, India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-white-50 my-4">
+            
+            <div class="text-center text-white-50">
+                <small>&copy; 2026 Bharat Udyam Finance Portal. This is a conceptual informational portal.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
